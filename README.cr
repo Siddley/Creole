@@ -1,0 +1,46 @@
+= WikiCreole Creole 1.0 language definition for Sublime Text 2 =
+== Synopsis ==
+These language definitions (for syntax highlighting) in Sublime Text 2 are a work
+in progress. If you find bugs please raise an issue, or better still, fork, fix
+and issue a pull request. All help greatly appreciated.
+
+== Installation
+//The recommended method of installation is via Package Control.//
+
+=== Package Control (coming soon)
+* Follow instructions on <http://wbond.net/sublime_packages/package_control>
+* Install using {{{Package Control: Install Package > Creole}}}
+
+=== Other Methods
+First find your Sublime Text 2 Packages folder
+{{{
+    OS X: ~/Library/Application Support/Sublime Text 2/Packages/
+    Windows: %APPDATA%/Sublime Text 2/Packages/
+    Linux: ~/.Sublime Text 2/Packages/
+}}}
+# If you have Git, you can clone this repo to {{{/your-packages-folder/Creole/}}}
+    \\or,\\
+# Download this repo using the "ZIP" button above, unzip and place the files in
+                                               {{{/your-packages-folder/Creole/}}}
+== Settings/Usage
+No settings are necessary. Simply use the file extensions {{{.cr}}} or {{{.creole}}}
+for your Creole pages.
+
+**Note:** You'll get excellent syntax highlighting if you use one of the colour
+themes that comes with the [[https://github.com/Siddley/Enhanced.HTML.CFML]] package.
+You can see a screenshot of this {{{README.cr}}} at the bottom of the page.
+
+== License ==
+WikiCreole Creole 1.0 language definition for Sublime Text 2\\
+Copyright (C) 2012 Siddley\\
+This program is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version.\\\\
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details.\\\\
+You should have received a copy of the GNU General Public License along with this program.
+If not, see <http://www.gnu.org/licenses/>.\\\\
+Siddley can be contacted at <https://github.com/Siddley/Creole>
+
+{{http://siddley.net/README.png}}

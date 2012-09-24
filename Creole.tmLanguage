@@ -1,0 +1,589 @@
+<!--
+Language definition for WikiCreole Creole 1.0 in Sublime Text 2
+Copyright (C) 2012 Siddley
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Siddley can be contacted at <https://github.com/Siddley/Creole>
+-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>author</key>
+	<string>Siddley - https://github.com/Siddley</string>
+	<key>fileTypes</key>
+	<array>
+		<string>creole</string>
+		<string>cr</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>(?x)
+		(&lt;(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|form|dl)\b.*?&gt;
+		|&lt;!--(?!.*--&gt;)
+		|\{\s*($|\?&gt;\s*$|//|/\*(.*\*/\s*$|(?!.*?\*/)))
+		)</string>
+	<key>foldingStopMarker</key>
+	<string>(?x)
+		(&lt;/(?i:head|body|table|thead|tbody|tfoot|tr|div|select|fieldset|style|script|ul|ol|form|dl)&gt;
+		|^\s*--&gt;
+		|(^|\s)\}
+		)</string>
+	<key>name</key>
+	<string>Creole</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>meta.block-level.creole</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#block_raw</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#heading</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^ *([*])+(?=\s)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.list_item.creole</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>^(?=\S)</string>
+			<key>name</key>
+			<string>markup.list.unnumbered.creole</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#list-paragraph</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^[ ]*(#)(?=\s)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.list_item.creole</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>^(?=\S)</string>
+			<key>name</key>
+			<string>markup.list.numbered.creole</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#list-paragraph</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^(?=&lt;(p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math|ins|del)\b)(?!.*?&lt;/\1&gt;)</string>
+			<key>comment</key>
+			<string>disable creole formatting in block-level tags</string>
+			<key>end</key>
+			<string>(?&lt;=^&lt;/\1&gt;$\n)</string>
+			<key>name</key>
+			<string>meta.disable-markdown</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>text.html.basic</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^(?=&lt;(p|div|h[1-6]|blockquote|pre|table|dl|ol|ul|script|noscript|form|fieldset|iframe|math|ins|del)\b)</string>
+			<key>comment</key>
+			<string>disable creole formatting in inline tags</string>
+			<key>end</key>
+			<string>$\n?</string>
+			<key>name</key>
+			<string>meta.disable-markdown</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>text.html.basic</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>^ *-{4,} *$\n?</string>
+			<key>name</key>
+			<string>punctuation.definition.horizonlal-rule.creole</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>list-paragraph</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>\G\s+(?=\S)</string>
+					<key>end</key>
+					<string>^\s*$</string>
+					<key>name</key>
+					<string>meta.paragraph.list.creole</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#inline</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>block_raw</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>^(\{\{\{)\s*$\n?</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.raw.creole</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>^(\}\}\})\s*$\n?</string>
+					<key>name</key>
+					<string>markup.raw.block.creole</string>
+				</dict>
+			</array>
+		</dict>
+		<key>inline_raw</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(\{\{\{).*?(\}\}\})</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.raw.creole</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.raw.creole</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>markup.raw.inline.creole</string>
+				</dict>
+			</array>
+		</dict>
+		<key>link-inline</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.link.creole</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>markup.underline.link.creole</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.link.creole</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>string.other.link.title.creole</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.link.creole</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?x:
+				(\[\[)						# opening double square bracket
+				(\s*[^\s\|]+[^\|]+?)		# the url; anything except pipe (at least 1 not whitespace)
+				((\|)						# pipe separator
+				(\s*[^\|\s]+[^\|]+)			# title text
+					)?						# pipe and title are optional
+				(\]\])						# close double square bracket (end link)
+			 )</string>
+			<key>name</key>
+			<string>meta.link.inline.creole</string>
+		</dict>
+		<key>link-email</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.link.creole</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>markup.underline.link.creole</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.link.creole</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(&lt;)((?:mailto:)?[-.\w]+@[-a-z0-9]+(\.[-a-z0-9]+)*\.[a-z]+)(&gt;)</string>
+			<key>name</key>
+			<string>meta.link.email.lt-gt.creole</string>
+		</dict>
+		<key>link-inet</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.link.creole</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>markup.underline.link.creole</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.link.creole</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(&lt;)?((?:https?|ftp)://[^\s&gt;]+)(&gt;)?</string>
+			<key>name</key>
+			<string>meta.link.inet.creole</string>
+		</dict>
+		<key>line-break</key>
+		<dict>
+			<key>match</key>
+			<string> *(\\\\){1} *</string>
+			<key>name</key>
+			<string>punctuation.definition.line-break.creole</string>
+		</dict>
+		<key>image-inline</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.image.creole</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>markup.underline.link.creole</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.image.creole</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>string.other.image.title.creole</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.image.creole</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?x:
+				(\{\{)						# opening double curly bracket
+				(\s*[^\s\|]+[^\|]+?)		# the url; anything except pipe (at least 1 not whitespace)
+				((\|)						# pipe separator
+				(\s*[^\|\s]+[^\|]+)			# title text
+					)?						# pipe and title are optional
+				(\}\})						# close double curly bracket (end image)
+			 )</string>
+			<key>name</key>
+			<string>meta.image.inline.creole</string>
+		</dict>
+		<key>italic</key>
+		<dict>
+			<key>begin</key>
+			<string>(?x)
+						(\/\/)(?=\S)									# opening //
+						(?=												# zero-width positive lookahead
+							(
+							    &lt;[^&gt;]*+&gt;						# match any HTML tag
+							  | ~[\\*{}\[\]#\|/&gt;]?+					# or escape characters
+							  | \[										# or literal [
+								(
+								        (?&lt;square&gt;				# named group
+											[^\[\]~]					# don't match these
+								          | ~.							# or escaped characters
+								          | \[ \g&lt;square&gt;*+ \]	# or nested group
+								        )*+
+									\]
+								)
+							  | (?!(?&lt;=\S)\1).						# or everything else
+							)++
+							(?&lt;=\S)\1								# closing //
+						)												# close positive lookahead
+					</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.italic.creole</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?&lt;=\S)(\1)((?!\1)|(?=\1\1))</string>
+			<key>name</key>
+			<string>markup.italic.creole</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>applyEndPatternLast</key>
+					<integer>1</integer>
+					<key>begin</key>
+					<string>(?=&lt;[^&gt;]*?&gt;)</string>
+					<key>end</key>
+					<string>(?&lt;=&gt;)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>text.html.basic</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
+				</dict>
+			</array>
+		</dict>
+		<key>bold</key>
+		<dict>
+			<key>begin</key>
+			<string>(?x)
+						(\*\*)(?=\S)									# opening **
+						(?=												# zero-width positive lookahead
+							(
+							    &lt;[^&gt;]*+&gt;						# match any HTML tag
+							  | ~[\\*{}\[\]#\|/&gt;]?+					# or escape characters
+							  | \[										# or literal [
+								(
+								        (?&lt;square&gt;				# named group
+											[^\[\]~]					# don't match these
+								          | ~.							# or escaped characters
+								          | \[ \g&lt;square&gt;*+ \]	# or nested group
+								        )*+
+									\]
+								)
+							  | (?!(?&lt;=\S)\1).						# or everything else
+							)++
+							(?&lt;=\S)\1								# closing **
+						)												# close positive lookahead
+					</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.bold.creole</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?&lt;=\S)(\1)</string>
+			<key>name</key>
+			<string>markup.bold.creole</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>applyEndPatternLast</key>
+					<integer>1</integer>
+					<key>begin</key>
+					<string>(?=&lt;[^&gt;]*?&gt;)</string>
+					<key>end</key>
+					<string>(?&lt;=&gt;)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>text.html.basic</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
+				</dict>
+			</array>
+		</dict>
+		<key>bracket</key>
+		<dict>
+			<key>comment</key>
+			<string>matched so it's not when converted to html</string>
+			<key>match</key>
+			<string>&lt;(?![a-z/?\$!])</string>
+			<key>name</key>
+			<string>meta.other.valid-bracket.creole</string>
+		</dict>
+		<key>escape</key>
+		<dict>
+			<key>match</key>
+			<string>~[*#{}\|\[\]\\/&gt;]+</string>
+			<key>name</key>
+			<string>constant.character.escape.creole</string>
+		</dict>
+		<key>ampersand</key>
+		<dict>
+			<key>comment</key>
+			<string>matched so it's not when converted to html</string>
+			<key>match</key>
+			<string>&amp;(?!([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+);)</string>
+			<key>name</key>
+			<string>meta.other.valid-ampersand.markdown</string>
+		</dict>
+		<key>heading</key>
+		<dict>
+			<key>begin</key>
+			<string>\G(={1,6})(?!=)\s*(?=\S)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.heading.creole</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>entity.name.section.creole</string>
+			<key>end</key>
+			<string>\s*(=*) *$\n?</string>
+			<key>name</key>
+			<string>markup.heading.creole</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
+				</dict>
+			</array>
+		</dict>
+		<key>inline</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#inline_raw</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#link-inline</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#link-inet</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#link-email</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#line-break</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#image-inline</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#italic</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#bold</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#escape</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#bracket</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#ampersand</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>text.html.creole</string>
+	<key>uuid</key>
+	<string>16e92828-eaa9-4cde-bc6c-a166adc48304</string>
+</dict>
+</plist>
