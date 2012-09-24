@@ -8,7 +8,8 @@ and issue a pull request. All help greatly appreciated.
 //The recommended method of installation is via Package Control.//
 
 === Package Control (coming soon)
-* Follow instructions on <http://wbond.net/sublime_packages/package_control>
+* Follow instructions at
+[[http://wbond.net/sublime_packages/package_control|Will Bond's Package Control]]
 * Install using {{{Package Control: Install Package > Creole}}}
 
 === Other Methods
