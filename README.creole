@@ -27,7 +27,7 @@ First find your Sublime Text 2 Packages folder
 No settings are necessary. Simply use the file extensions {{{.cr}}} or {{{.creole}}}
 for your Creole pages.
 
-**Note:** You'll get excellent syntax highlighting if you use one of the colour
+**Note:** \\You'll get excellent syntax highlighting if you use one of the colour
 themes that comes with the
 [[https://github.com/Siddley/Enhanced.HTML.CFML|Siddley Enhanced HTML and CFML package]].\\
 \\You can see a screenshot of this {{{README.cr}}} at the bottom of the page.
@@ -45,4 +45,4 @@ You should have received a copy of the GNU General Public License along with thi
 If not, see http://www.gnu.org/licenses/ \\\\
 Siddley can be contacted at https://github.com/Siddley/Creole \\
 
-{{http://siddley.net/README.png}}
+{{http://siddley.net/README-RAW.png}}
