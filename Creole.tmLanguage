@@ -271,7 +271,7 @@ Siddley can be contacted at <https://github.com/Siddley/Creole>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.link.creole</string>
+					<string>invalid.illegal.punctuation.link.creole</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -281,7 +281,7 @@ Siddley can be contacted at <https://github.com/Siddley/Creole>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.link.creole</string>
+					<string>invalid.illegal.punctuation.link.creole</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -296,7 +296,7 @@ Siddley can be contacted at <https://github.com/Siddley/Creole>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.link.creole</string>
+					<string>invalid.illegal.punctuation.link.creole</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -306,7 +306,7 @@ Siddley can be contacted at <https://github.com/Siddley/Creole>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.definition.link.creole</string>
+					<string>invalid.illegal.punctuation.link.creole</string>
 				</dict>
 			</dict>
 			<key>match</key>
