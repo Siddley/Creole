@@ -45,4 +45,4 @@ You should have received a copy of the GNU General Public License along with thi
 If not, see http://www.gnu.org/licenses/ \\\\
 Siddley can be contacted at https://github.com/Siddley/Creole \\
 
-{{http://siddley.net/README-RAW.png}}
+{{http://siddley.net/screenshots/cr/README-RAW.png}}
