@@ -425,7 +425,7 @@ Siddley can be contacted at <https://github.com/Siddley/Creole>
 		<dict>
 			<key>begin</key>
 			<string>(?x)
-						(\*\*)(?=\S)									# opening **
+						(?&lt;!\*|^)(\*\*)(?=\S)						# opening **
 						(?=												# zero-width positive lookahead
 							(
 							    &lt;[^&gt;]*+&gt;						# match any HTML tag
