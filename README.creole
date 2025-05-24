@@ -30,7 +30,6 @@ for your Creole pages.
 **Note:** \\You'll get excellent syntax highlighting if you use one of the colour
 themes that comes with the
 [[https://github.com/Siddley/Enhanced.HTML.CFML|Siddley Enhanced HTML and CFML package]].\\
-\\You can see a screenshot of this {{{README.cr}}} at the bottom of the page.
 
 == License ==
 WikiCreole Creole 1.0 language definition for Sublime Text 2\\
@@ -43,4 +42,3 @@ See the MIT License for more details.\\\\
 
 Siddley can be contacted at https://github.com/Siddley/Creole \\
 
-{{http://siddley.net/screenshots/cr/README-RAW.png}}
